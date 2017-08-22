@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{547573A4-C043-4248-B02F-7D8A54C53311}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SwissQrClient</RootNamespace>
+    <AssemblyName>SwissQrClient</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net46\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AsyncHelper.cs" />
+    <Compile Include="Dictionaries\Languages.cs" />
+    <Compile Include="Dictionaries\QrGeneration\QrCodeOutputs.cs" />
+    <Compile Include="Dictionaries\QrGeneration\QrCodeQualityLevels.cs" />
+    <Compile Include="Dictionaries\QrGeneration\QrCodeTypes.cs" />
+    <Compile Include="Requests\GenerateQrRequest.cs" />
+    <Compile Include="Requests\GetAuthenticatedUserRequest.cs" />
+    <Compile Include="Requests\GetCreditsRequest.cs" />
+    <Compile Include="Requests\Stripe\CheckSubscriptionRequest.cs" />
+    <Compile Include="Requests\Stripe\DeleteSubscriptionRequest.cs" />
+    <Compile Include="Requests\Stripe\SubscribeRequest.cs" />
+    <Compile Include="TransferObjects\QrCodeSimpleDto.cs" />
+    <Compile Include="TransferObjects\RequestParameters\AuthParameter.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="RestSharpJsonNetSerializer.cs" />
+    <Compile Include="TransferObjects\RequestParameters\GenerateQrParameter.cs" />
+    <Compile Include="TransferObjects\RequestParameters\RegisterUserDto.cs" />
+    <Compile Include="Headers.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests\AuthenticateRequest.cs" />
+    <Compile Include="Requests\Base\IRestClientRequest.cs" />
+    <Compile Include="Requests\Base\RestClientRequestBase.cs" />
+    <Compile Include="Requests\RegisterUserRequest.cs" />
+    <Compile Include="Settings\AdHocEndpointSettings.cs" />
+    <Compile Include="Settings\ConfigEndpointSettings.cs" />
+    <Compile Include="Settings\IEndpointSettings.cs" />
+    <Compile Include="TransferObjects\AuthenticationData.cs" />
+    <Compile Include="TransferObjects\RequestParameters\Stripe\SubscribeParameter.cs" />
+    <Compile Include="TransferObjects\SubscriptionDto.cs" />
+    <Compile Include="TransferObjects\UserFullDto.cs" />
+    <Compile Include="WebClient\Error.cs" />
+    <Compile Include="WebClient\ItemResult.cs" />
+    <Compile Include="WebClient\Result.cs" />
+    <Compile Include="TransferObjects\UserRegistrationDto.cs" />
+    <Compile Include="TransferObjects\AuthResult.cs" />
+    <Compile Include="TransferObjects\UserSimpleDto.cs" />
+    <Compile Include="WebClient\IWebClient.cs" />
+    <Compile Include="WebClient\IWebClientGateway.cs" />
+    <Compile Include="WebClient\SwissQrWebClient.cs" />
+    <Compile Include="WebClient\SwissQrWebClientGateway.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
