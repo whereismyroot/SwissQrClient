@@ -24,13 +24,13 @@ namespace SwissQrClient.Requests
 
         public override Method Method { get; } = Method.POST;
 
-        public override string Resource { get; } = "qr";
+        public override string Resource { get; } = "qr/{type}";
 
         public override HttpStatusCode SuccessStatusCode { get; } = HttpStatusCode.OK;
 
         protected override IEnumerable<Parameter> GetParameters()
         {
-            yield return new Parameter { Name = "type", Value = _type, Type = ParameterType.QueryString };
+            yield return new Parameter { Name = "type", Value = _type, Type = ParameterType.UrlSegment };
             yield return new Parameter { Name = "output", Value = _output, Type = ParameterType.QueryString };
             yield return new Parameter { Name = "lang", Value = _lang, Type = ParameterType.QueryString };
             yield return new Parameter { Name = "body", Value = _param, Type = ParameterType.RequestBody };
